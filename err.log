@@ -1,0 +1,13 @@
+Unhandled Exception: Command raised an exception: NameError: name 'cursor' is not definedUnhandled Exception: Command "delete-sad-word" is not foundUnhandled Exception: Command "list-sad-words" is not foundUnhandled Exception: Command "p" is not foundUnhandled Exception: Command raised an exception: SyntaxError: syntax error at or near "miserable"
+LINE 1:  DELETE FROM sad_words WHERE words='('miserable')'
+                                              ^
+Unhandled Exception: Command raised an exception: SyntaxError: syntax error at or near "miserable"
+LINE 1:  DELETE FROM sad_words WHERE words='('miserable')'
+                                              ^
+Unhandled Exception: Command raised an exception: SyntaxError: syntax error at or near "miserable"
+LINE 1:  DELETE FROM sad_words WHERE words='('miserable')'
+                                              ^
+Unhandled Exception: Command raised an exception: SyntaxError: syntax error at or near "miserable"
+LINE 1:  DELETE FROM sad_words WHERE words= (''miserable'') 
+                                               ^
+Unhandled Exception: Command "delete-sad-word" is not foundUnhandled Exception: Command raised an exception: UnboundLocalError: local variable 'sad_words' referenced before assignmentUnhandled Exception: Command "p" is not foundUnhandled Exception: Command "p" is not foundUnhandled Exception: Command raised an exception: NameError: name 'get_better_better' is not definedUnhandled Exception: Command "list-ecouraging-word" is not foundUnhandled Exception: Command "sad" is not foundUnhandled Exception: Command "delete-sad-word" is not foundUnhandled Exception: Command raised an exception: ValueError: list.remove(x): x not in list
