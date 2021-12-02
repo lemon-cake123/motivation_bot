@@ -65,6 +65,8 @@ try:
 
         @bot.command(name="add-sad-word", help = "add a sad word to the database")
         async def add(ctx,sad_word):
+            if sad_word in sad_words:
+                ctx.send(f'{sad_word} is already in the database')
             
             cursor.execute(insert_sad_query, (sad_word.lower(),))
 
@@ -82,6 +84,9 @@ try:
 
         @bot.command(name="remove-sad-word", help = "remove a sad word from the database")
         async def remove(ctx,sad_word):
+            if not sad_word in sad_words:
+                ctx.send(f'{sad_word} is not in the database')
+            
             cursor.execute(delete_sad_query, (sad_word.lower(),))
 
             connection.commit()
@@ -94,7 +99,7 @@ try:
             
             print(sad_words)
 
-        @bot.command(name="list-sad-words", help = "remove a sad word from the database")
+        @bot.command(name="list-sad-words", help = "list sad words on the database")
         async def list(ctx):
             embed = discord.Embed(title="Sad words", description="the list of sad words on the database")
             embed.add_field(name="list",value = "\n".join(sad_words),inline = False)
@@ -103,6 +108,8 @@ try:
 
         @bot.command(name="add-encouraging-word", help = "add a encouraging word to the database")
         async def add(ctx,encouraging_word):
+            if encouraging_word in get_better_words:
+                ctx.send(f'{encouraging_word} is already in the database')
             
             cursor.execute(insert_better_query, (encouraging_word,))
             
@@ -116,6 +123,9 @@ try:
 
         @bot.command(name="remove-encouraging-word", help = "remove a encouraging word from the database")
         async def remove(ctx,encouraging_word):
+            if not encouraging_word in get_better_words:
+                ctx.send(f'{encouraging_word} is not in the database')
+                
             cursor.execute(delete_better_query, (encouraging_word,))
             await ctx.send(f"removed {encouraging_word} from the database")
             
