@@ -66,7 +66,8 @@ try:
         @bot.command(name="add-sad-word", help = "add a sad word to the database")
         async def add(ctx,sad_word):
             if sad_word in sad_words:
-                ctx.send(f'{sad_word} is already in the database')
+                await ctx.send(f'{sad_word} is already in the database')
+                return
             
             cursor.execute(insert_sad_query, (sad_word.lower(),))
 
@@ -85,7 +86,9 @@ try:
         @bot.command(name="remove-sad-word", help = "remove a sad word from the database")
         async def remove(ctx,sad_word):
             if not sad_word in sad_words:
-                ctx.send(f'{sad_word} is not in the database')
+                await ctx.send(f'{sad_word} is not in the database')
+                return
+
             
             cursor.execute(delete_sad_query, (sad_word.lower(),))
 
@@ -109,7 +112,8 @@ try:
         @bot.command(name="add-encouraging-word", help = "add a encouraging word to the database")
         async def add(ctx,encouraging_word):
             if encouraging_word in get_better_words:
-                ctx.send(f'{encouraging_word} is already in the database')
+                await ctx.send(f'{encouraging_word} is already in the database')
+                return
             
             cursor.execute(insert_better_query, (encouraging_word,))
             
@@ -124,7 +128,8 @@ try:
         @bot.command(name="remove-encouraging-word", help = "remove a encouraging word from the database")
         async def remove(ctx,encouraging_word):
             if not encouraging_word in get_better_words:
-                ctx.send(f'{encouraging_word} is not in the database')
+                await ctx.send(f'{encouraging_word} is not in the database')
+                return
                 
             cursor.execute(delete_better_query, (encouraging_word,))
             await ctx.send(f"removed {encouraging_word} from the database")
