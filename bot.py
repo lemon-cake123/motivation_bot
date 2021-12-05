@@ -1,4 +1,10 @@
 # bot.py
+'''
+author : lemon-cake123
+This file is meant to be the main logic of the bot
+You are allowed to edit this file
+'''
+
 import os
 import discord
 import requests
